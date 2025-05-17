@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.td.cloud.mall</groupId>
+    <version>${revision}</version>
+    <artifactId>td-cloud</artifactId>
+    <name>${project.artifactId}</name>
+    <packaging>pom</packaging>
+    <modules>
+        <module>td-parent</module>
+        <module>td-dependencies</module>
+        <module>td-bom</module>
+        <module>td-boot-starters</module>
+    </modules>
+
+    <properties>
+        <!--平台基础版本-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>21</java.version>
+
+
+        <!--构建工具版本 maven-->
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
+        <maven-skip-deploy>true</maven-skip-deploy>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <revision>0.0.1-SNAPSHOT</revision>
+    </properties>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- 动态版本固化插件  处理版本占位符-->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>flatten-maven-plugin</artifactId>
+                    <version>${flatten-maven-plugin.version}</version>
+                    <configuration>
+                        <updatePomFile>true</updatePomFile>
+                        <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>flatten</id>
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>flatten</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>flatten.clean</id>
+                            <phase>clean</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- JDK 21+ 编译支持 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <parameters>true</parameters>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <compilerArgument>-parameters</compilerArgument>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <repositories>
+<!--        &lt;!&ndash;        <repository>&ndash;&gt;-->
+<!--        &lt;!&ndash;            <id>spring-milestones</id>&ndash;&gt;-->
+<!--        &lt;!&ndash;            <url>https://repo.spring.io/milestone</url>&ndash;&gt;-->
+<!--        &lt;!&ndash;            <snapshots><enabled>false</enabled></snapshots>&ndash;&gt;-->
+<!--        &lt;!&ndash;        </repository>&ndash;&gt;-->
+        <repository>
+            <id>alibaba-public</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
+
+
+
+</project>

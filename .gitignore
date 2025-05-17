@@ -1,0 +1,8 @@
+*.flattened
+*.flat
+*.flatmap
+
+
+*.flattened-pom.xml
+*.flat-pom.xml
+*.flatmap-pom.xml

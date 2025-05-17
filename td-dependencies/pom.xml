@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.td.cloud.mall</groupId>
+        <artifactId>td-cloud</artifactId>
+        <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>td-dependencies</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <properties>
+        <!--第三方版本控制-->
+        <!--项目编译配置-->
+        <java.version>${java.version}</java.version>
+        <project.build.locales>zh_CN</project.build.locales>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!--version-->
+        <lombok.version>1.18.30</lombok.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
+        <log4j.version>2.24.3</log4j.version>
+        <commons-codec.version>1.17.1</commons-codec.version>
+        <commons-lang3.version>3.14.0</commons-lang3.version>
+        <commons-io.version>2.16.1</commons-io.version>
+        <commons-pool2.version>2.12.1</commons-pool2.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+
+
+        <!--swagger集成-->
+        <knife4j.version>4.5.0</knife4j.version>
+        <springdoc-openapi.version>2.6.0</springdoc-openapi.version>
+        <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
+        <!--数据库相关-->
+        <mybatis-generator-maven-plugin.version>1.4.2</mybatis-generator-maven-plugin.version>
+        <pagehelper.version>1.4.6</pagehelper.version>
+        <mapper.version>4.2.1</mapper.version>
+        <dynamic-ds.version>4.3.0</dynamic-ds.version>
+        <!--sharding-sphere5.4.0 需要单独出snakeyaml、jaxb-api-->
+        <sharding-sphere.version>4.1.0</sharding-sphere.version>
+        <snakeyaml.version>1.33</snakeyaml.version>
+        <jaxb-api.version>2.3.1</jaxb-api.version>
+        <mysql-connector-j.version>9.2.0</mysql-connector-j.version>
+
+        <!--运维相关-->
+        <apm-toolkit-logback-1.x.version>9.1.0</apm-toolkit-logback-1.x.version>
+        <apm-toolkit-trace.version>9.1.0</apm-toolkit-trace.version>
+        <micrometer-registry-prometheus.version>1.5.14</micrometer-registry-prometheus.version>
+
+        <!--工具类-->
+        <hutool.version>5.8.35</hutool.version>
+
+
+        <!--redisson -->
+        <redisson.version>3.41.0</redisson.version>
+        <xxl-job-core.version>2.4.0</xxl-job-core.version>
+        <httpclient5.version>5.4.2</httpclient5.version>
+        <userAgentUtils.version>1.21</userAgentUtils.version>
+
+        <!--阿里系sdk-->
+        <!--nacos-->
+        <alibaba.cloud.version>2023.0.1.2</alibaba.cloud.version>
+        <com.aliyun.dingtalk.version>2.0.12</com.aliyun.dingtalk.version>
+        <com.alibaba.easyexcel.version>4.0.1</com.alibaba.easyexcel.version>
+        <com.alibaba.fastjson2.version>2.0.53</com.alibaba.fastjson2.version>
+        <com.alibaba.transmittable.thread.local.version>2.14.5</com.alibaba.transmittable.thread.local.version>
+        <spring.cloud.starter.alibaba.seata.version>2023.0.1.2</spring.cloud.starter.alibaba.seata.version>
+        <druid.version>1.2.23</druid.version>
+        <rocketmq.version>2.3.1</rocketmq.version>
+        <protobuf-java.version>3.25.5</protobuf-java.version>
+        <netty-all.version>4.1.115.Final</netty-all.version>
+
+        <!--jackson  -->
+        <jackson-core.version>2.17.3</jackson-core.version>
+        <jackson-databind.version>2.18.2</jackson-databind.version>
+
+        <easy.es.boot.starter.version>2.0.0</easy.es.boot.starter.version>
+        <!--jwt-->
+        <jjwt.version>0.12.6</jjwt.version>
+        <jakarta.annotation-api.version>2.1.1</jakarta.annotation-api.version>
+
+        <skipTests>true</skipTests>
+    </properties>
+
+
+    <dependencies>
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--mapstruct-->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-jdk8</artifactId>
+            <version>${mapstruct.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--log4j-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <!--commons-codec-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>${commons-codec.version}</version>
+        </dependency>
+        <!--commons-lang3-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+        <!--commons-io-->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+        <!--commons-pool2-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>${commons-pool2.version}</version>
+        </dependency>
+        <!--commons-collections4-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${commons-collections4.version}</version>
+        </dependency>
+        <!--swagger集成-->
+
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc-openapi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${springfox-boot-starter.version}</version>
+        </dependency>
+        <!--数据库相关-->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>${mybatis-generator-maven-plugin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${pagehelper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>${mapper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>${dynamic-ds.version}</version>
+        </dependency>
+        <!--sharding-sphere5.4.0 需要单独出snakeyaml、jaxb-api-->
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+            <version>${sharding-sphere.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${snakeyaml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>${mysql-connector-j.version}</version>
+        </dependency>
+        <!--运维相关-->
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-logback-1.x</artifactId>
+            <version>${apm-toolkit-logback-1.x.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-trace</artifactId>
+            <version>${apm-toolkit-trace.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>${micrometer-registry-prometheus.version}</version>
+        </dependency>
+        <!--工具类-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <!--redisson -->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>${redisson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xuxueli</groupId>
+            <artifactId>xxl-job-core</artifactId>
+            <version>${xxl-job-core.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.client5/httpclient5 -->
+        <dependency>
+            <groupId>org.apache.httpcomponents.client5</groupId>
+            <artifactId>httpclient5</artifactId>
+            <version>${httpclient5.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/eu.bitwalker/UserAgentUtils -->
+        <dependency>
+            <groupId>eu.bitwalker</groupId>
+            <artifactId>UserAgentUtils</artifactId>
+            <version>${userAgentUtils.version}</version>
+        </dependency>
+        <!--阿里系sdk-->
+        <!--nacos-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <version>${alibaba.cloud.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <version>${alibaba.cloud.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+            <version>${spring.cloud.starter.alibaba.seata.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/easyexcel -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>${com.alibaba.easyexcel.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2 -->
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>${com.alibaba.fastjson2.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/transmittable-thread-local -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+            <version>${com.alibaba.transmittable.thread.local.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>${rocketmq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>${netty-all.version}</version>
+        </dependency>
+        <!--jackson  -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.dromara.easy-es/easy-es-boot-starter -->
+        <dependency>
+            <groupId>org.dromara.easy-es</groupId>
+            <artifactId>easy-es-boot-starter</artifactId>
+            <version>${easy.es.boot.starter.version}</version>
+        </dependency>
+        <!--jwt-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>${jakarta.annotation-api.version}</version>
+        </dependency>
+
+
+    </dependencies>
+
+</project>

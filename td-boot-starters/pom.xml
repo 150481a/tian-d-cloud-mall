@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.td.cloud.mall</groupId>
+        <artifactId>td-parent</artifactId>
+        <version>${revision}</version>
+        <relativePath>../td-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>td-boot-starters</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>td-swagger-starter</module>
+        <module>td-redis-starter</module>
+        <module>td-rocketmq-starter</module>
+        <module>td-cache-starter</module>
+        <module>td-database-starter</module>
+        <module>td-convention-starter</module>
+        <module>td-designpattern-starter</module>
+        <module>td-distributedid-starter</module>
+        <module>td-idempotent-starter</module>
+        <module>td-log-starter</module>
+        <module>td-oos-starter</module>
+    </modules>
+    <version>${revision}</version>
+
+
+    <properties>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.locales>zh_CN</project.build.locales>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
