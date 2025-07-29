@@ -97,6 +97,16 @@
             <id>alibaba-public</id>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
+<!--        <repository>-->
+<!--            <id>huaweicloud-sdk</id>-->
+<!--            <url>https://repo.huaweicloud.com/repository/maven/</url>-->
+
+<!--        </repository>-->
+<!--        <repository>-->
+<!--            <id>central</id>-->
+<!--            <url>https://repo.maven.apache.org/maven2</url>-->
+
+<!--        </repository>-->
     </repositories>
 
 

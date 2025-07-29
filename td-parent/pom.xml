@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.td.cloud.mall</groupId>
         <artifactId>td-cloud</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -43,7 +43,7 @@
         <lombok.version>1.18.30</lombok.version>
         <mapstruct.version>1.6.2</mapstruct.version>
 
-        <revision>1.0.0-SNAPSHOT</revision>
+        <revision>0.0.1-SNAPSHOT</revision>
         <td.dependencies.bom.revision>1.0.0-SNAPSHOT</td.dependencies.bom.revision>
     </properties>
 
@@ -75,7 +75,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <!-- 多环境Profile配置 -->
     <profiles>
         <profile>

@@ -1,0 +1,2 @@
+com.td.boot.starter.log.config.LogAutoConfiguration
+com.td.boot.starter.log.config.LogWebMvcConfiguration

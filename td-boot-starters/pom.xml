@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.td.cloud.mall</groupId>
         <artifactId>td-parent</artifactId>
-        <version>${revision}</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../td-parent/pom.xml</relativePath>
     </parent>
 

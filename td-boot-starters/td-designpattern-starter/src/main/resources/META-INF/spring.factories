@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.td.boot.starter.designpattern.config.DesignPatternAutoConfiguration

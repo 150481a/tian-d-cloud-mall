@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <springProperty scope="context" name="SERVICE_NAME" source="spring.application.name" defaultValue="unknown-service"/>
+    <springProperty scope="context" name="JSON_LOG_ENABLED" source="td.log.json-log-enabled" defaultValue="true"/>
+    <springProperty scope="context" name="JSON_LOG_FULL_STACK_TRACE" source="td.log.json-log-full-stack-trace" defaultValue="false"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %MDC{traceId:-} %MDC{spanId:-} %msg%n%clr(%ex){red}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="JSON_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"service_name":"${SERVICE_NAME}"}</customFields>
+            <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+                <maxLength>2048</maxLength> <rootCauseFirst>true</rootCauseFirst>
+                <exclude>jakarta\.servlet.*|org\.springframework.*</exclude>
+                <showCallerData>${JSON_LOG_FULL_STACK_TRACE}</showCallerData> </throwableConverter>
+            <fieldNames>
+                <timestamp>@timestamp</timestamp>
+                <message>message</message>
+                <logger>logger_name</logger>
+                <thread>thread_name</thread>
+                <level>level</level>
+                <levelValue>level_value</levelValue>
+                <version>@version</version>
+                <stackTrace>stack_trace</stackTrace>
+            </fieldNames>
+            <includeMdcKeyNames>traceId,spanId</includeMdcKeyNames> <timestampPattern>yyyy-MM-dd'T'HH:mm:ss.SSSXXX</timestampPattern>
+            <timeZone>Asia/Shanghai</timeZone>
+        </encoder>
+    </appender>
+
+    <if condition='${JSON_LOG_ENABLED}' >
+        <then>
+            <root level="INFO">
+                <appender-ref ref="JSON_CONSOLE"/>
+            </root>
+        </then>
+        <else>
+            <root level="INFO">
+                <appender-ref ref="CONSOLE"/>
+            </root>
+        </else>
+    </if>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
